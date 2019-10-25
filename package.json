@@ -1,8 +1,8 @@
 {
   "name": "segment-analytics-web",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Segment analytics integration library for web",
-  "browser": "dist/analytics.min.js",
+  "main": "dist/analytics.js",
   "types": "dist/analytics.d.ts",
   "scripts": {
     "clean": "rimraf dist",
