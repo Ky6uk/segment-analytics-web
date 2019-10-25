@@ -2,13 +2,17 @@
   "name": "segment-analytics-web",
   "version": "1.0.0",
   "description": "Segment analytics integration library for web",
-  "main": "dist/analytics.js",
+  "browser": "dist/analytics.min.js",
+  "types": "dist/analytics.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf dist",
+    "compile": "tsc",
+    "bundle": "npm run clean && npm run compile && terser dist/analytics.js -o dist/analytics.min.js",
+    "dev": "tsc --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Ky6uk/segment-analytics-web.git"
+    "url": "github:Ky6uk/segment-analytics-web"
   },
   "keywords": [
     "segment",
@@ -16,5 +20,13 @@
     "web"
   ],
   "author": "Roman Nuritdinov (Ky6uk)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.0",
+    "terser": "^4.3.9",
+    "typescript": "^3.6.4"
+  }
 }
