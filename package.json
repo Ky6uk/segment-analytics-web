@@ -1,0 +1,20 @@
+{
+  "name": "segment-analytics-web",
+  "version": "1.0.0",
+  "description": "Segment analytics integration library for web",
+  "main": "dist/analytics.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Ky6uk/segment-analytics-web.git"
+  },
+  "keywords": [
+    "segment",
+    "analytics",
+    "web"
+  ],
+  "author": "Roman Nuritdinov (Ky6uk)",
+  "license": "MIT"
+}
