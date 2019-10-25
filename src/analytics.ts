@@ -7,7 +7,7 @@ interface InitializedAnalytics extends Omit<Analytics, keyof Array<any>> {
   initialize: Function;
 };
 
-export type SegmentAnalytics = Analytics | InitializedAnalytics;
+type SegmentAnalytics = Analytics | InitializedAnalytics;
 
 declare global {
   interface Window {
@@ -56,7 +56,7 @@ function isInitialized(analytics: SegmentAnalytics) : analytics is InitializedAn
   return 'initialize' in analytics;
 }
 
-function initialize(writeKey: string) : SegmentAnalytics {
+function initializeAnalytics(writeKey: string) : SegmentAnalytics {
   let analytics : SegmentAnalytics = window.analytics = window.analytics || new Analytics();
 
   if (isInitialized(analytics)) {
@@ -84,4 +84,7 @@ function initialize(writeKey: string) : SegmentAnalytics {
   return analytics;
 }
 
-export { initialize };
+export {
+  initializeAnalytics,
+  SegmentAnalytics
+}

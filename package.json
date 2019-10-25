@@ -8,7 +8,8 @@
     "clean": "rimraf dist",
     "compile": "tsc",
     "bundle": "npm run clean && npm run compile && terser dist/analytics.js -o dist/analytics.min.js",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "prepublish": "npm run bundle"
   },
   "repository": {
     "type": "git",
