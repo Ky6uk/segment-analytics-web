@@ -1,6 +1,6 @@
 {
   "name": "segment-analytics-web",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Segment analytics integration library for web",
   "browser": "dist/analytics.min.js",
   "types": "dist/analytics.d.ts",

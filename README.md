@@ -4,17 +4,16 @@ Just another alternative of library for [Segment](https://segment.com/) analytic
 
 ## Usage 🎓
 
-```js
-import { initializeAnalytics } from 'segment-analytics-web';
+```ts
+import segment from 'segment-analytics-web';
 
-const writeKey = 'your-segment-api-key';
-const analytics = initializeAnalytics(writeKey);
+segment.initialize('your-segment-api-key');
 
-analytics.identify('97980cfea0067', {
+segment.analytics.identify('97980cfea0067', {
   name: 'Woof Bark'
 });
 
-// window.analytics also available
+// window.analytics should be also available
 ```
 
 ## Future plans 🧐

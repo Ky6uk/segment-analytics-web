@@ -1,11 +1,11 @@
 type SegmentMethod = 'trackSubmit' | 'trackClick' | 'trackLink' | 'trackForm' | 'pageview' | 'identify' | 'reset' | 'group' | 'track' | 'ready' | 'alias' | 'debug' | 'page' | 'once' | 'off' | 'on';
 type SegmentMethods = { [key in SegmentMethod]: Function };
 
-interface Analytics extends SegmentMethods, Array<any> {};
+interface Analytics extends SegmentMethods, Array<any> {}
 
 interface InitializedAnalytics extends Omit<Analytics, keyof Array<any>> {
   initialize: Function;
-};
+}
 
 type SegmentAnalytics = Analytics | InitializedAnalytics;
 
@@ -56,17 +56,15 @@ function isInitialized(analytics: SegmentAnalytics) : analytics is InitializedAn
   return 'initialize' in analytics;
 }
 
-function initializeAnalytics(writeKey: string) : SegmentAnalytics {
+function initialize(writeKey: string) : void {
   let analytics : SegmentAnalytics = window.analytics = window.analytics || new Analytics();
 
   if (isInitialized(analytics)) {
-    return analytics;
+    return;
   }
 
   if (invoked) {
     console.error('Segment snippet included twice.');
-
-    return analytics;
   }
 
   invoked = true;
@@ -80,11 +78,21 @@ function initializeAnalytics(writeKey: string) : SegmentAnalytics {
   document.body.insertBefore(script, null);
 
   analytics.page();
+}
 
-  return analytics;
+const segment = {
+  initialize,
+
+  get analytics() : SegmentAnalytics {
+    if (window.analytics === undefined) {
+      window.analytics = new Analytics();
+    }
+
+    return window.analytics;
+  }
 }
 
 export {
-  initializeAnalytics,
-  SegmentAnalytics
-}
+  SegmentAnalytics,
+  segment
+};
