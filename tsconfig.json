@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2019",
-    "module": "umd",
+    "target": "ES2021",
+    "module": "AMD",
     "importHelpers": true,
     "outDir": "dist",
     "declaration": true,
