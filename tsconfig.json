@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
-    "module": "AMD",
+    "target": "ESNext",
+    "module": "ESNext",
     "importHelpers": true,
     "outDir": "dist",
     "declaration": true,

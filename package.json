@@ -1,13 +1,14 @@
 {
   "name": "segment-analytics-web",
-  "version": "2.0.0-pre0",
+  "version": "2.0.0-pre2",
   "description": "Segment analytics integration library for web",
   "main": "dist/analytics.js",
   "types": "dist/analytics.d.ts",
   "scripts": {
     "clean": "rimraf dist",
-    "compile": "tsc",
-    "bundle": "npm run clean && npm run compile && terser dist/analytics.js -o dist/analytics.min.js",
+    "compile": "rollup -c rollup.config.js",
+    "minify": "terser dist/analytics.js -o dist/analytics.min.js",
+    "bundle": "npm run clean && npm run compile && npm run minify",
     "dev": "tsc --watch",
     "prepublish": "npm run bundle"
   },
@@ -26,7 +27,9 @@
     "tslib": "^2.2.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.2.1",
     "rimraf": "^3.0.2",
+    "rollup": "^2.51.1",
     "terser": "^5.7.0",
     "typescript": "^4.3.2"
   }
